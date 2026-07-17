@@ -1,9 +1,17 @@
 import streamlit as st
 from google import genai
 
+API_KEY = st.secrets["GEMINI_API_KEY"]
+st.write("Gemini key loaded:", bool(API_KEY))
+st.write("Gemini key length:", len(API_KEY))
+st.write("Gemini key prefix:", API_KEY[:4])
+
 client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
+    api_key=API_KEY
+
+
 )
+
 
 MODEL = "gemini-3.1-flash-lite"
 
